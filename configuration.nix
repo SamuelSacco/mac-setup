@@ -1,11 +1,10 @@
 { pkgs, ... }:
-
 {
-  # Enable Nix daemon
-  services.nix-daemon.enable = true;
+  # Disable nix-darwin's management of Nix (use Determinate Systems instead)
+  nix.enable = false;
   
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Enable flakes (this will be managed by Determinate, so we can remove this too)
+  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
